@@ -7,7 +7,7 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,8 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @RestController
-@EnableJpaRepositories
-public class FileuloadApplication {
+public class FileuloadApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(FileuloadApplication.class, args);
