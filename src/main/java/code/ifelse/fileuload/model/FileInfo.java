@@ -1,48 +1,31 @@
 package code.ifelse.fileuload.model;
 
-import lombok.Data;
+import com.google.cloud.storage.BlobId;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.Map;
 
-@Entity
 public class FileInfo {
-    private @Id
-    @GeneratedValue
-    Long id;
-    private String user;
-    private String file;
+    private BlobId blobId;
+    private Map<String,String> metadata;
 
-    public FileInfo() {
+    public FileInfo(BlobId blobId, Map<String, String> metadata) {
+        this.blobId = blobId;
+        this.metadata = metadata;
     }
 
-    public FileInfo(String user, String file) {
-        this.file = file;
-        this.user = user;
+    public BlobId getBlobId() {
+        return blobId;
     }
 
-    public Long getId() {
-        return id;
+    public void setBlobId(BlobId blobId) {
+        this.blobId = blobId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Map<String, String> getMetadata() {
+        return metadata;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public void setFile(String file) {
-        this.file = file;
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 }
